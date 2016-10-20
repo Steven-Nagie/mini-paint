@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $(".box").on('click', function() {
     $(this).addClass(color);
-    $(this).next().addClass(color);
+    // $(this).next().addClass(color);
   });
 
   $(".box").on('dblclick', function() {
@@ -33,6 +33,19 @@ $(document).ready(function(){
 
   $('#white').on('click', function(){
     color = 'white';
+  });
+
+  $('.box').on('mousedown', function() {
+    var moving = true;
+    $(".box").on('mousemove', function() {
+      if (moving === true) {
+        $(this).addClass(color);
+      }
+    });
+
+    $(document).on('mouseup', function() {
+      moving = false;
+    });
   });
 
 });
